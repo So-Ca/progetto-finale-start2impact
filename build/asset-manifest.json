@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c510f736.css",
+    "main.js": "/static/js/main.42aaf322.js",
+    "static/media/co2-card.png": "/static/media/co2-card.76d6be3c8f47c7883b9b.png",
+    "static/media/co2-wp.png": "/static/media/co2-wp.e3b2ad8f4947fb160c1b.png",
+    "static/media/main-wallpaper.png": "/static/media/main-wallpaper.2fd90b97db4d6b6a5f82.png",
+    "static/media/temp-card.png": "/static/media/temp-card.70cb77e8a73483725dc9.png",
+    "static/media/ch4-wp.webp": "/static/media/ch4-wp.c063a9e4c220183727f4.webp",
+    "static/media/temp-wp.webp": "/static/media/temp-wp.40f57ba7d15d0a54d4cc.webp",
+    "static/media/arctic-card.avif": "/static/media/arctic-card.939c63ce45827fb7950e.avif",
+    "static/media/arctic-wp2.jpeg": "/static/media/arctic-wp2.ff852c4c38e28f2c494b.jpeg",
+    "static/media/neo-latina-demo-FFP.ttf": "/static/media/neo-latina-demo-FFP.83d103c0c7a7a8f653c2.ttf",
+    "static/media/no2.jpeg": "/static/media/no2.11f839cc4a270ebbbf9a.jpeg",
+    "static/media/error-icon.png": "/static/media/error-icon.e89530065cbad63ceda1.png",
+    "static/media/ch4-card.png": "/static/media/ch4-card.3f3344a7f0a442b12da3.png",
+    "static/media/logo.png": "/static/media/logo.d9c983c2005059784229.png",
+    "static/media/Metropolis-Medium.otf": "/static/media/Metropolis-Medium.cdcce86268fb4a504ff5.otf",
+    "static/media/ApexMk2-BoldExtended.otf": "/static/media/ApexMk2-BoldExtended.e212ff425be516d65d72.otf",
+    "static/media/artic.svg": "/static/media/artic.76f16adfeeb4340bb9dfcbf177d3f941.svg",
+    "static/media/ch4.svg": "/static/media/ch4.9f303a019ae76fbf01e5ccc4403f28c3.svg",
+    "static/media/co2.svg": "/static/media/co2.594568062886a652da2d82a30c0236f5.svg",
+    "static/media/instagram.svg": "/static/media/instagram.7a440ea8de1d0ea3203cb7f8440b6f8e.svg",
+    "static/media/no2.svg": "/static/media/no2.6d279a42362f725f30a44aaa1754faab.svg",
+    "static/media/youtube.svg": "/static/media/youtube.3b1239b9a5f52c8c304eeccfa28f556f.svg",
+    "static/media/thermometer.svg": "/static/media/thermometer.ed7b61f5b8a271b5010c55a4e9dd749a.svg",
+    "static/media/twitter.svg": "/static/media/twitter.7b417e614db2be047588316ffd7dba0e.svg",
+    "static/media/facebook.svg": "/static/media/facebook.4172f094907a6837b8f36d120b55601b.svg",
+    "static/media/home.svg": "/static/media/home.4c3eb4db4f177c2922da137ad3883776.svg",
+    "index.html": "/index.html",
+    "main.c510f736.css.map": "/static/css/main.c510f736.css.map",
+    "main.42aaf322.js.map": "/static/js/main.42aaf322.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c510f736.css",
+    "static/js/main.42aaf322.js"
+  ]
+}

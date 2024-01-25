@@ -1,0 +1,216 @@
+/* variables */
+$mainColor: #A4C7DA;
+$secondaryColor: #912721;
+$thirdColor: #745214;
+$fourthColor: rgb(53, 131, 33);
+$fifthColor: #235A92;
+$paragraphColor: #444444;
+$primaryFont: "Latina", sans-serif;
+$secondaryFont: "Apex", sans-serif;
+$thirdFont: "Metropolis", sans-serif;
+$thinAzureShading: -1px 0 #A4C7DA, 0 1px #A4C7DA, 1px 0 #A4C7DA, 0 -1px #A4C7DA;
+$thinBlueShading: -1px 0 #235A92, 0 1px #235A92, 1px 0 #235A92, 0 -1px #235A92;
+$thinBrownShading: -1px 0 #745214, 0 1px #745214, 1px 0 #745214, 0 -1px #745214;
+$thickGreenShading: -2px 0 #358321, 0 2px #358321, 2px 0 #358321, 0 -2px #358321;
+$thickBrownShading: -2px 0 #745214, 0 2px #745214, 2px 0 #745214, 0 -2px #745214;
+
+.navbar{
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  width: 80%;
+  border-bottom: 1px solid $mainColor;
+  border-radius: 5px;
+}
+
+.burger{
+  cursor: pointer;
+  display: none;
+}
+
+.bar{
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #ffffff;
+}
+.bar:nth-child(1){
+  background: $thirdColor;
+}
+.bar:nth-child(2){
+  background: $fourthColor;
+}
+.bar:nth-child(3){
+  background: $fifthColor;
+}
+.burger.active .bar:nth-child(1){
+transform: translateY(8px) rotate(45deg);
+}
+.burger.active .bar:nth-child(2){
+opacity: 0;
+}
+.burger.active .bar:nth-child(3){
+transform: translateY(-8px) rotate(-45deg);
+}
+
+.container{
+  margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.title{
+  font-family: $primaryFont;
+  font-size: 2.5rem;
+  color: $mainColor;
+  text-shadow: $thickBrownShading;
+}
+
+.ul-container{
+  margin-right: 5%;
+}
+
+.redirects{
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.redirects li{
+  margin: auto 10%;
+  list-style: none;
+}
+
+.icon{
+  width: 30px;
+  height: 30px;
+  box-shadow: 0 0 5px $thirdColor;
+  border-radius: 5px;
+}
+
+/* media query */
+@media (max-width: 400px){
+  .navbar{
+    width: 100%;
+    border-radius: 0px;
+  }
+  .burger{
+    margin: auto 5%;
+    display: block;
+  }
+  .title{
+    margin-left: 20px;
+    font-size: 1.8rem;
+  }
+  .redirects{
+    position: fixed;
+    top: 100px;
+    left: -150%;
+    transition: all 0.5s ease-in-out;
+    background-color: rgb(68, 68, 68, 0.3);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .redirects.active{
+    left: 0;
+    flex-direction: column;
+  }
+  .redirects li{
+    margin: 15px 30px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 500px){
+  .navbar{
+    width: 100%;
+    border-radius: 0px;
+  }
+  .burger{
+    margin: auto 5%;
+    display: block;
+  }
+  .redirects{
+    position: fixed;
+    top: 300px;
+    left: -150%;
+    transition: all 0.5s ease-in-out;
+    background-color: rgb(68, 68, 68, 0.3);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .redirects.active{
+    left: 0;
+    flex-direction: column;
+  }
+  .redirects li{
+    margin: 15px 30px;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 750px){
+  .navbar{
+    width: 100%;
+    border-radius: 0px;
+  }
+  .burger{
+    margin: auto 5%;
+    display: block;
+  }
+  .redirects{
+    position: fixed;
+    top: 300px;
+    left: -150%;
+    transition: all 0.5s ease-in-out;
+    background-color: rgb(68, 68, 68, 0.3);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .redirects.active{
+    left: 0;
+    flex-direction: column;
+  }
+  .redirects li{
+    margin: 15px 30px;
+  }
+}
+@media (min-width: 751px) and (max-width: 999px){
+  .navbar{
+    width: 100%;
+    border-radius: 0px;
+  }
+  .burger{
+    margin: auto 5%;
+    display: block;
+  }
+  .redirects{
+    position: fixed;
+    top: 300px;
+    left: -150%;
+    transition: all 0.5s ease-in-out;
+    background-color: rgb(68, 68, 68, 0.3);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .redirects.active{
+    left: 0;
+    flex-direction: column;
+  }
+  .redirects li{
+    margin: 15px 30px;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1299px){
+  .navbar{
+    width: 100%;
+    border-radius: 0px;
+  }
+}
