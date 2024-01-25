@@ -59,7 +59,7 @@
   <a name="contacts"></a>
   <h3>Contacts</h3>
 
-  Final Project: <a href="/">Climate Stats</a><br>
+  Final Project: <a href="https://climate-stats-so-ca.netlify.app/">Climate Stats</a><br>
   <a href="https://sonny-caputo-portfolio.netlify.app/">Portfolio</a><br>
   <a href="https://www.linkedin.com/in/sonny-caputo-554315185">Likedin</a><br>
 
