@@ -8,8 +8,8 @@
     This application is used to learn various data about global warming.
   </p>
 
-
-
+![main-img](https://github.com/So-Ca/progetto-finale-start2impact/assets/121359947/ae31472e-7098-4f24-b854-9036220c734b)
+![graph-img](https://github.com/So-Ca/progetto-finale-start2impact/assets/121359947/3907b021-0079-45ec-a789-793531645116)
 
   <h3>table of contents</h3>
   <ul>
@@ -53,6 +53,8 @@
 
   <p>Completely responsive site and it can be used in several device.</p>
 
+![responsive-high](https://github.com/So-Ca/progetto-finale-start2impact/assets/121359947/9aae67ac-dfb9-4a14-be4e-eb06812b4740)
+![responsive-low](https://github.com/So-Ca/progetto-finale-start2impact/assets/121359947/8eb2e0e1-18fd-434a-8f06-719309a4eca2)
 
   <a name="contacts"></a>
   <h3>Contacts</h3>
