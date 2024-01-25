@@ -133,7 +133,7 @@ function NitrogenDioxide() {
     if(isMounted){
       getNO2();
     }
-  }, [isMounted]);
+  }, [isMounted, chartInstance]);
 
   return (
     <div className={style["page"]}>
