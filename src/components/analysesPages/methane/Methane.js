@@ -19,121 +19,121 @@ function Methane() {
     return () => setIsMounted(false);
   }, []);
 
+  // fetch dei dati e creazione grafico
   useEffect( () => {
-    if(isMounted){
-      getCH4();
-    }
-  }, [getCH4, isMounted]);
-
-  // fetch dei dati
-  async function getCH4(){
-    try{
-      setIsLoading(true);
-      if(chartInstance){
-        chartInstance.destroy();
-      }
-
-      const response = await axios.get("https://global-warming.org/api/methane-api");
-      const data = await response.data.methane;
-      const date = data.map( item => item.date);
-      const average = data.map( item => parseFloat(item.average));
-
-      const graph = {
-        type: "line",
-        data: {
-          labels: date,
-          datasets: [
-            {
-              label: "Methane Level",
-              data: average,
-              borderColor: "#235A92",
-              borderWidth: 2,
-              fill: true
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            x: {
-              type: "category",
-              position: "bottom",
-              title:{
-                display: true,
-                text: "Years",
-                color: "#745214",
-                font: {
-                  size: 20,
-                  family: "Latina",
-                  weight: "bold"
-                }
-              },
-              ticks: {
-                color: "#000000",
-                font: {
-                  size: 16,
-                  family: "Metropolis"
-                }
-              },
-              grid: {
-                color: "#745214"
-              } 
-              },
-            y: {
-              type: "linear",
-              position: "left",
-              title: {
-                display: true,
-                text: "Methane Level",
-                color: "#745214",
-                font: {
-                  size: 20,
-                  family: "Latina",
-                  weight: "bold"
-                }
-              },
-              ticks: {
-                color: "#000000",
-                font: {
-                  size: 16,
-                  family: "Metropolis"
-                }
-              },
-              grid: {
-                color: "#745214"
+    async function getCH4(){
+      try{
+        setIsLoading(true);
+        if(chartInstance){
+          chartInstance.destroy();
+        }
+  
+        const response = await axios.get("https://global-warming.org/api/methane-api");
+        const data = await response.data.methane;
+        const date = data.map( item => item.date);
+        const average = data.map( item => parseFloat(item.average));
+  
+        const graph = {
+          type: "line",
+          data: {
+            labels: date,
+            datasets: [
+              {
+                label: "Methane Level",
+                data: average,
+                borderColor: "#235A92",
+                borderWidth: 2,
+                fill: true
               }
-            }
+            ]
           },
-          plugins: {
-            legend: {
-              display: true, 
-              position: "top",
-              labels: {
-                color: "#235A92",
-                font: {
-                  size: 25,
-                  family: "Latina"
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                type: "category",
+                position: "bottom",
+                title:{
+                  display: true,
+                  text: "Years",
+                  color: "#745214",
+                  font: {
+                    size: 20,
+                    family: "Latina",
+                    weight: "bold"
+                  }
+                },
+                ticks: {
+                  color: "#000000",
+                  font: {
+                    size: 16,
+                    family: "Metropolis"
+                  }
+                },
+                grid: {
+                  color: "#745214"
+                } 
+                },
+              y: {
+                type: "linear",
+                position: "left",
+                title: {
+                  display: true,
+                  text: "Methane Level",
+                  color: "#745214",
+                  font: {
+                    size: 20,
+                    family: "Latina",
+                    weight: "bold"
+                  }
+                },
+                ticks: {
+                  color: "#000000",
+                  font: {
+                    size: 16,
+                    family: "Metropolis"
+                  }
+                },
+                grid: {
+                  color: "#745214"
+                }
+              }
+            },
+            plugins: {
+              legend: {
+                display: true, 
+                position: "top",
+                labels: {
+                  color: "#235A92",
+                  font: {
+                    size: 25,
+                    family: "Latina"
+                  }
                 }
               }
             }
           }
-        }
-      };
-
-      const ctx = chartRef.current.getContext("2d");
-      const newChartInstance = new Chart(ctx, graph);
-
-      setChartInstance(newChartInstance);
-      setIsLoading(false);
-      console.log("CH4: ", data);
-
-    } catch(error){
-      console.log("Ops, there has been an error: ", error);
-      setIsLoading(false);
-      setError(error);
+        };
+  
+        const ctx = chartRef.current.getContext("2d");
+        const newChartInstance = new Chart(ctx, graph);
+  
+        setChartInstance(newChartInstance);
+        setIsLoading(false);
+        console.log("CH4: ", data);
+  
+      } catch(error){
+        console.log("Ops, there has been an error: ", error);
+        setIsLoading(false);
+        setError(error);
+      }
     }
-  }
+
+    if(isMounted){
+      getCH4();
+    }
+  }, [isMounted]);
 
   return (
     <div className={style["page"]}>

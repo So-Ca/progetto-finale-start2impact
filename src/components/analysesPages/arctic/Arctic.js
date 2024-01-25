@@ -19,122 +19,122 @@ function Arctic() {
     return () => setIsMounted(false);
   }, []);
 
+  // fetch dei dati e creazione grafico
   useEffect( () => {
-    if(isMounted){
-      getArctic();
-    }
-  }, [getArctic, isMounted]);
-
-  // fetch dei dati
-  async function getArctic(){
-    try{
-      setIsLoading(true);
-      if(chartInstance){
-        chartInstance.destroy();
-      }
-
-      const response = await axios.get("https://global-warming.org/api/arctic-api");
-      const data = await response.data.arcticData;
-      const years = data.map( item => item.year);
-      const extents = data.map( item => item.extent);
-
-      // specifiche del grafico
-      const graph = {
-        type: "line",
-        data: {
-          labels: years,
-          datasets: [
-            {
-              label: "Arctic Polar Ice Extent",
-              data: extents,
-              borderColor: "#235A92",
-              borderWidth: 2,
-              fill: true
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            x: {
-              type: "category",
-              position: "bottom",
-              title:{
-                display: true,
-                text: "Years",
-                color: "#745214",
-                font: {
-                  size: 20,
-                  family: "Latina",
-                  weight: "bold"
-                }
-              },
-              ticks: {
-                color: "#000000",
-                font: {
-                  size: 16,
-                  family: "Metropolis"
-                }
-              },
-              grid: {
-                color: "#745214"
-              } 
-              },
-            y: {
-              type: "linear",
-              position: "left",
-              title: {
-                display: true,
-                text: "Extent (M km²)",
-                color: "#745214",
-                font: {
-                  size: 20,
-                  family: "Latina",
-                  weight: "bold"
-                }
-              },
-              ticks: {
-                color: "#000000",
-                font: {
-                  size: 16,
-                  family: "Metropolis"
-                }
-              },
-              grid: {
-                color: "#745214"
+    async function getArctic(){
+      try{
+        setIsLoading(true);
+        if(chartInstance){
+          chartInstance.destroy();
+        }
+  
+        const response = await axios.get("https://global-warming.org/api/arctic-api");
+        const data = await response.data.arcticData;
+        const years = data.map( item => item.year);
+        const extents = data.map( item => item.extent);
+  
+        // specifiche del grafico
+        const graph = {
+          type: "line",
+          data: {
+            labels: years,
+            datasets: [
+              {
+                label: "Arctic Polar Ice Extent",
+                data: extents,
+                borderColor: "#235A92",
+                borderWidth: 2,
+                fill: true
               }
-            }
+            ]
           },
-          plugins: {
-            legend: {
-              display: true, 
-              position: "top",
-              labels: {
-                color: "#235A92",
-                font: {
-                  size: 25,
-                  family: "Latina"
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                type: "category",
+                position: "bottom",
+                title:{
+                  display: true,
+                  text: "Years",
+                  color: "#745214",
+                  font: {
+                    size: 20,
+                    family: "Latina",
+                    weight: "bold"
+                  }
+                },
+                ticks: {
+                  color: "#000000",
+                  font: {
+                    size: 16,
+                    family: "Metropolis"
+                  }
+                },
+                grid: {
+                  color: "#745214"
+                } 
+                },
+              y: {
+                type: "linear",
+                position: "left",
+                title: {
+                  display: true,
+                  text: "Extent (M km²)",
+                  color: "#745214",
+                  font: {
+                    size: 20,
+                    family: "Latina",
+                    weight: "bold"
+                  }
+                },
+                ticks: {
+                  color: "#000000",
+                  font: {
+                    size: 16,
+                    family: "Metropolis"
+                  }
+                },
+                grid: {
+                  color: "#745214"
+                }
+              }
+            },
+            plugins: {
+              legend: {
+                display: true, 
+                position: "top",
+                labels: {
+                  color: "#235A92",
+                  font: {
+                    size: 25,
+                    family: "Latina"
+                  }
                 }
               }
             }
           }
-        }
-      };
-
-      const ctx = chartRef.current.getContext("2d");
-      const newChartInstance = new Chart(ctx, graph);
-
-      setChartInstance(newChartInstance);
-      setIsLoading(false);
-      console.log("Ice: ", data);
-
-    } catch(error) {
-      console.log("Ops, there has benn an error: ", error);
-      setIsLoading(false);
-      setError(error);
+        };
+  
+        const ctx = chartRef.current.getContext("2d");
+        const newChartInstance = new Chart(ctx, graph);
+  
+        setChartInstance(newChartInstance);
+        setIsLoading(false);
+        console.log("Ice: ", data);
+  
+      } catch(error) {
+        console.log("Ops, there has benn an error: ", error);
+        setIsLoading(false);
+        setError(error);
+      }
     }
-  }
+
+    if(isMounted){
+      getArctic();
+    }
+  }, [isMounted]);
 
   return (
     <div className={style["page"]}>

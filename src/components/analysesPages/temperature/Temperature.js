@@ -19,133 +19,133 @@ function Temperature() {
     return () => setIsMounted(false);
   }, []);
 
+  // fetch dei dati e creazione grafico
   useEffect( () => {
-    if(isMounted){
-      getTemperature();
-    }
-  }, [getTemperature, isMounted]);
-
-  // fetch dei dati
-  async function getTemperature(){
-    try{
-      setIsLoading(true);
-      if(chartInstance){
-        chartInstance.destroy();
-      }
-
-      const response = await axios.get("https://global-warming.org/api/temperature-api");
-      const data = await response.data.result;
-      const time = data.map( item => item.time);
-      const station = data.map( item => parseFloat(item.station));
-      const land = data.map( item => parseFloat(item.land));
-
-      // specifiche del grafico
-      const graph = {
-        type: "bar",
-        data: {
-          labels: time,
-          datasets: [
-            {
-              label: "Temperature Anomalies",
-              data: station,
-              borderColor: "rgb(35, 90, 146)",
-              backgroundColor: "rgba(35, 90, 146, 0.5)",
-              borderWidth: 2,
-              fill: false
-            },
-            {
-              label: "Land Anomalies",
-              data: land,
-              borderColor: "rgb(116, 82, 20)",
-              backgroundColor: "rgba(116, 82, 20, 0.5)",
-              borderWidth: 2,
-              fill: false
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            x: {
-              type: "category",
-              position: "bottom",
-              title:{
-                display: true,
-                text: "Years",
-                color: "#ffffff",
-                font: {
-                  size: 20,
-                  family: "Latina",
-                  weight: "bold"
-                }
+    async function getTemperature(){
+      try{
+        setIsLoading(true);
+        if(chartInstance){
+          chartInstance.destroy();
+        }
+  
+        const response = await axios.get("https://global-warming.org/api/temperature-api");
+        const data = await response.data.result;
+        const time = data.map( item => item.time);
+        const station = data.map( item => parseFloat(item.station));
+        const land = data.map( item => parseFloat(item.land));
+  
+        // specifiche del grafico
+        const graph = {
+          type: "bar",
+          data: {
+            labels: time,
+            datasets: [
+              {
+                label: "Temperature Anomalies",
+                data: station,
+                borderColor: "rgb(35, 90, 146)",
+                backgroundColor: "rgba(35, 90, 146, 0.5)",
+                borderWidth: 2,
+                fill: false
               },
-              ticks: {
-                color: "#000000",
-                font: {
-                  size: 16,
-                  family: "Metropolis"
-                }
-              },
-              grid: {
-                color: "#000000"
-              } 
-              },
-            y: {
-              type: "linear",
-              position: "left",
-              title: {
-                display: true,
-                text: "Temperature Anomalies",
-                color: "#ffffff",
-                font: {
-                  size: 20,
-                  family: "Latina",
-                  weight: "bold"
-                }
-              },
-              ticks: {
-                color: "#000000",
-                font: {
-                  size: 16,
-                  family: "Metropolis"
-                }
-              },
-              grid: {
-                color: "#000000"
+              {
+                label: "Land Anomalies",
+                data: land,
+                borderColor: "rgb(116, 82, 20)",
+                backgroundColor: "rgba(116, 82, 20, 0.5)",
+                borderWidth: 2,
+                fill: false
               }
-            }
+            ]
           },
-          plugins: {
-            legend: {
-              display: true, 
-              position: "top",
-              labels: {
-                color: "#ffffff",
-                font: {
-                  size: 25,
-                  family: "Latina"
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                type: "category",
+                position: "bottom",
+                title:{
+                  display: true,
+                  text: "Years",
+                  color: "#ffffff",
+                  font: {
+                    size: 20,
+                    family: "Latina",
+                    weight: "bold"
+                  }
+                },
+                ticks: {
+                  color: "#000000",
+                  font: {
+                    size: 16,
+                    family: "Metropolis"
+                  }
+                },
+                grid: {
+                  color: "#000000"
+                } 
+                },
+              y: {
+                type: "linear",
+                position: "left",
+                title: {
+                  display: true,
+                  text: "Temperature Anomalies",
+                  color: "#ffffff",
+                  font: {
+                    size: 20,
+                    family: "Latina",
+                    weight: "bold"
+                  }
+                },
+                ticks: {
+                  color: "#000000",
+                  font: {
+                    size: 16,
+                    family: "Metropolis"
+                  }
+                },
+                grid: {
+                  color: "#000000"
+                }
+              }
+            },
+            plugins: {
+              legend: {
+                display: true, 
+                position: "top",
+                labels: {
+                  color: "#ffffff",
+                  font: {
+                    size: 25,
+                    family: "Latina"
+                  }
                 }
               }
             }
           }
-        }
-      };
-      console.log("Anomalie Temperature: ", station);
-      console.log("Anomalie lands: ", land);
-      const ctx = chartRef.current.getContext("2d");
-      const newChartInstance = new Chart(ctx, graph);
-
-      setChartInstance(newChartInstance);
-      setIsLoading(false);
-      console.log("Temperatures: ", data);
-
-    } catch(error){
-      console.log("Ops, there has been an error: ", error);
-      setIsLoading(false);
-      setError(error);
+        };
+        console.log("Anomalie Temperature: ", station);
+        console.log("Anomalie lands: ", land);
+        const ctx = chartRef.current.getContext("2d");
+        const newChartInstance = new Chart(ctx, graph);
+  
+        setChartInstance(newChartInstance);
+        setIsLoading(false);
+        console.log("Temperatures: ", data);
+  
+      } catch(error){
+        console.log("Ops, there has been an error: ", error);
+        setIsLoading(false);
+        setError(error);
+      }
     }
-  } 
+
+    if(isMounted){
+      getTemperature();
+    }
+  }, [isMounted]);
 
   return (
     <div className={style["page"]}>

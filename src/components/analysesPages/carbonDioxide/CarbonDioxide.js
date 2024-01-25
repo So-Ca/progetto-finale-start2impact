@@ -19,122 +19,122 @@ function CarbonDioxide() {
     return () => setIsMounted(false);
   }, []);
 
+  // fetch dei dati e creazione grafico
   useEffect( () => {
-    if(isMounted){
-      getCO2();
-    }
-  }, [getCO2, isMounted]);
-
-  // fetch dei dati
-  async function getCO2(){
-    try{
-      setIsLoading(true);
-      if(chartInstance){
-        chartInstance.destroy();
-      }
-
-      const response = await axios.get("https://global-warming.org/api/co2-api");
-      const data = await response.data.co2;
-      const cycle = data.map( item => `${item.year}-${item.month}-${item.day}`);
-      const trend = data.map( item => parseFloat(item.trend));
-
-      // specifiche del grafico
-      const graph = {
-        type: "line",
-        data: {
-          labels: cycle,
-          datasets: [
-            {
-              label: "CO2 Emissions",
-              data: trend,
-              borderColor: "#8BC1CD",
-              borderWidth: 0.1,
-              fill: true
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          scales: {
-            x: {
-              type: "category",
-              position: "bottom",
-              title:{
-                display: true,
-                text: "CO2 Detection Date",
-                color: "#8BC1CD",
-                font: {
-                  size: 20,
-                  family: "Apex",
-                  weight: "bold"
-                }
-              },
-              ticks: {
-                color: "#ffffff",
-                font: {
-                  size: 16,
-                  family: "Metropolis"
-                }
-              },
-              grid: {
-                color: "#ffffff"
-              } 
-              },
-            y: {
-              type: "linear",
-              position: "left",
-              title: {
-                display: true,
-                text: "CO2 Concentration (PPM)",
-                color: "#8BC1CD",
-                font: {
-                  size: 20,
-                  family: "Apex",
-                  weight: "bold"
-                }
-              },
-              ticks: {
-                color: "#ffffff",
-                font: {
-                  size: 16,
-                  family: "Metropolis"
-                }
-              },
-              grid: {
-                color: "#ffffff"
+    async function getCO2(){
+      try{
+        setIsLoading(true);
+        if(chartInstance){
+          chartInstance.destroy();
+        }
+  
+        const response = await axios.get("https://global-warming.org/api/co2-api");
+        const data = await response.data.co2;
+        const cycle = data.map( item => `${item.year}-${item.month}-${item.day}`);
+        const trend = data.map( item => parseFloat(item.trend));
+  
+        // specifiche del grafico
+        const graph = {
+          type: "line",
+          data: {
+            labels: cycle,
+            datasets: [
+              {
+                label: "CO2 Emissions",
+                data: trend,
+                borderColor: "#8BC1CD",
+                borderWidth: 0.1,
+                fill: true
               }
-            }
+            ]
           },
-          plugins: {
-            legend: {
-              display: true, 
-              position: "top",
-              labels: {
-                color: "#ffffff",
-                font: {
-                  size: 25,
-                  family: "Apex"
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                type: "category",
+                position: "bottom",
+                title:{
+                  display: true,
+                  text: "CO2 Detection Date",
+                  color: "#8BC1CD",
+                  font: {
+                    size: 20,
+                    family: "Apex",
+                    weight: "bold"
+                  }
+                },
+                ticks: {
+                  color: "#ffffff",
+                  font: {
+                    size: 16,
+                    family: "Metropolis"
+                  }
+                },
+                grid: {
+                  color: "#ffffff"
+                } 
+                },
+              y: {
+                type: "linear",
+                position: "left",
+                title: {
+                  display: true,
+                  text: "CO2 Concentration (PPM)",
+                  color: "#8BC1CD",
+                  font: {
+                    size: 20,
+                    family: "Apex",
+                    weight: "bold"
+                  }
+                },
+                ticks: {
+                  color: "#ffffff",
+                  font: {
+                    size: 16,
+                    family: "Metropolis"
+                  }
+                },
+                grid: {
+                  color: "#ffffff"
+                }
+              }
+            },
+            plugins: {
+              legend: {
+                display: true, 
+                position: "top",
+                labels: {
+                  color: "#ffffff",
+                  font: {
+                    size: 25,
+                    family: "Apex"
+                  }
                 }
               }
             }
           }
-        }
-      };
-
-      const ctx = chartRef.current.getContext("2d");
-      const newChartInstance = new Chart(ctx, graph);
-
-      setChartInstance(newChartInstance);
-      setIsLoading(false);
-      console.log("CO2: ", data);
-
-    } catch(error){
-      console.log("Ops, there has been an error: ", error);
-      setIsLoading(false);
-      setError(error);
+        };
+  
+        const ctx = chartRef.current.getContext("2d");
+        const newChartInstance = new Chart(ctx, graph);
+  
+        setChartInstance(newChartInstance);
+        setIsLoading(false);
+        console.log("CO2: ", data);
+  
+      } catch(error){
+        console.log("Ops, there has been an error: ", error);
+        setIsLoading(false);
+        setError(error);
+      }
     }
-  }
+    
+    if(isMounted){
+      getCO2();
+    }
+  }, [isMounted]);
 
   return (
     <div className={style["page"]}>
