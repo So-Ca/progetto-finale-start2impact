@@ -40,34 +40,34 @@ function Navbar() {
         <div className={style["ul-container"]}>
           <ul className={`${style["redirects"]} ${isActive ? style["active"] : ""}`}>
             {isCurrentPage("/") ? (
-              <li><img className={style["icon"]} src={home} style={{boxShadow: "none"}}/></li>
+              <li><img className={style["icon"]} src={home} style={{boxShadow: "none"}} alt="home"/></li>
             ) : (
-              <li><Link to="/"><img className={style["icon"]} src={home}/></Link></li>
+              <li><Link to="/"><img className={style["icon"]} src={home}/ alt="home"></Link></li>
             )}
             {isCurrentPage("/temperature") ? (
-              <li><img className={style["icon"]} src={temp} style={{boxShadow: "none"}}/></li>
+              <li><img className={style["icon"]} src={temp} style={{boxShadow: "none"}} alt="temperature"/></li>
             ): (
-              <li><Link to="/temperature"><img className={style["icon"]} src={temp}/></Link></li>
+              <li><Link to="/temperature"><img className={style["icon"]} src={temp} alt="temperature"/></Link></li>
             )}
             {isCurrentPage("/no2") ? (
-              <li><img className={style["icon"]} src={no2} style={{boxShadow: "none"}}/></li>
+              <li><img className={style["icon"]} src={no2} style={{boxShadow: "none"}} alt="no2"/></li>
             ): (
-              <li><Link to="/no2"><img className={style["icon"]} src={no2}/></Link></li>
+              <li><Link to="/no2"><img className={style["icon"]} src={no2} alt="temperature"/></Link></li>
             )}
             {isCurrentPage("/ch4") ? (
-              <li><img className={style["icon"]} src={ch4} style={{boxShadow: "none"}}/></li>
+              <li><img className={style["icon"]} src={ch4} style={{boxShadow: "none"}} alt="ch4"/></li>
             ) : (
-              <li><Link to="/ch4"><img className={style["icon"]} src={ch4}/></Link></li>
+              <li><Link to="/ch4"><img className={style["icon"]} src={ch4} alt="ch4"/></Link></li>
             )}
             {isCurrentPage("/co2") ? (
-              <li><img className={style["icon"]} src={co2} style={{boxShadow: "none"}}/></li>
+              <li><img className={style["icon"]} src={co2} style={{boxShadow: "none"}} alt="co2"/></li>
               ) : (
-              <li><Link to="/co2"><img className={style["icon"]} src={co2}/></Link></li>
+              <li><Link to="/co2"><img className={style["icon"]} src={co2} alt="co2"/></Link></li>
             )}
             {isCurrentPage("/arctic") ? (
-              <li><img className={style["icon"]} src={ice} style={{boxShadow: "none"}}/></li>
+              <li><img className={style["icon"]} src={ice} style={{boxShadow: "none"}} alt="polar ice"/></li>
             ) : (
-              <li><Link to="/arctic"><img className={style["icon"]} src={ice}/></Link></li>
+              <li><Link to="/arctic"><img className={style["icon"]} src={ice} alt="polar ice"/></Link></li>
             )}
           </ul>
         </div>

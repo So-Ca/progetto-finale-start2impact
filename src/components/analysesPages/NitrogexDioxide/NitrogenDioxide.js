@@ -23,7 +23,7 @@ function NitrogenDioxide() {
     if(isMounted){
       getNO2();
     }
-  }, []);
+  }, [getNO2, isMounted]);
 
   // fetch dei dati
   async function getNO2(){
@@ -182,7 +182,7 @@ function NitrogenDioxide() {
           </p>
       </div>
       <h2 className={style["data-source"]}>
-        The data source is the <a href="https://www.nasa.gov/goddard/" target="_blank" className={style["source-data-link"]}>Goddard Space Flight Center</a>, which has collected and provided data on NO2 emissions from the year 2002 to 2023.
+        The data source is the <a href="https://www.nasa.gov/goddard/" target="_blank" rel="noreferrer" className={style["source-data-link"]}>Goddard Space Flight Center</a>, which has collected and provided data on NO2 emissions from the year 2002 to 2023.
       </h2>
       {error && (
         <div className='error-message'>

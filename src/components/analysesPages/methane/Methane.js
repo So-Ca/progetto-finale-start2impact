@@ -23,7 +23,7 @@ function Methane() {
     if(isMounted){
       getCH4();
     }
-  }, []);
+  }, [getCH4, isMounted]);
 
   // fetch dei dati
   async function getCH4(){
@@ -187,7 +187,7 @@ function Methane() {
           </p>
       </div>
       <h2 className={style["data-source"]}>
-        The data source is the <a href="https://www.nasa.gov/goddard/" className={style["source-data-link"]}>Goddard Space Flight Center</a>, which has collected and provided data on ch4 emissions from the year 1984 to 2023.
+        The data source is the <a href="https://www.nasa.gov/goddard/" rel="noreferrer" className={style["source-data-link"]}>Goddard Space Flight Center</a>, which has collected and provided data on ch4 emissions from the year 1984 to 2023.
       </h2>
       {error && (
         <div className='error-message'>

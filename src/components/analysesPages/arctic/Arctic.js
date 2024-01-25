@@ -23,7 +23,7 @@ function Arctic() {
     if(isMounted){
       getArctic();
     }
-  }, []);
+  }, [getArctic, isMounted]);
 
   // fetch dei dati
   async function getArctic(){
@@ -196,7 +196,7 @@ function Arctic() {
           </ul>
       </div>
       <h2 className={style["data-source"]}>
-        The data source is the <a href="https://www.nasa.gov/goddard/" className={style["source-data-link"]}>Goddard Space Flight Center</a>, which has collected and provided data on polar ice extent from the year 1979 to 2021, for the ninth month, in the northern hemisphere.
+        The data source is the <a href="https://www.nasa.gov/goddard/" rel="noreferrer" className={style["source-data-link"]}>Goddard Space Flight Center</a>, which has collected and provided data on polar ice extent from the year 1979 to 2021, for the ninth month, in the northern hemisphere.
       </h2>
       {error && (
         <div className='error-message'>

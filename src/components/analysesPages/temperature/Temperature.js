@@ -23,7 +23,7 @@ function Temperature() {
     if(isMounted){
       getTemperature();
     }
-  }, []);
+  }, [getTemperature, isMounted]);
 
   // fetch dei dati
   async function getTemperature(){
@@ -196,7 +196,7 @@ function Temperature() {
           </p>
       </div>
       <h2 className={style["data-source"]}>
-        The data source is the <a href="https://www.nasa.gov/goddard/" className={style["source-data-link"]}>Goddard Space Flight Center</a>, which has collected and provided data on polar ice extent from the year 1880 to 2023.
+        The data source is the <a href="https://www.nasa.gov/goddard/" rel="noreferrer" className={style["source-data-link"]}>Goddard Space Flight Center</a>, which has collected and provided data on polar ice extent from the year 1880 to 2023.
       </h2>
       {error && (
         <div className='error-message'>

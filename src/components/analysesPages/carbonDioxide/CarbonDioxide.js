@@ -23,7 +23,7 @@ function CarbonDioxide() {
     if(isMounted){
       getCO2();
     }
-  }, []);
+  }, [getCO2, isMounted]);
 
   // fetch dei dati
   async function getCO2(){
@@ -219,7 +219,7 @@ function CarbonDioxide() {
         </div>
       </div>
       <h2 className={style["data-source"]}>
-        The data source is the <a href="https://www.nasa.gov/goddard/" className={style["source-data-link"]}>Goddard Space Flight Center</a>, which has collected and provided data on CO2 emissions from the year 2014 to 2024.
+        The data source is the <a href="https://www.nasa.gov/goddard/" rel="noreferrer" className={style["source-data-link"]}>Goddard Space Flight Center</a>, which has collected and provided data on CO2 emissions from the year 2014 to 2024.
       </h2>
       {error && (
         <div className='error-message'>
