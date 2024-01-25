@@ -113,7 +113,7 @@ function Methane() {
         };
   
         const ctx = chartRef.current.getContext("2d");
-        const newChartInstance = new Chart(ctx, graph);
+        new Chart(ctx, graph);
   
         setIsLoading(false);
         console.log("CH4: ", data);

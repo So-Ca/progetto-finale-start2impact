@@ -125,7 +125,7 @@ function Temperature() {
         console.log("Anomalie Temperature: ", station);
         console.log("Anomalie lands: ", land);
         const ctx = chartRef.current.getContext("2d");
-        const newChartInstance = new Chart(ctx, graph);
+        new Chart(ctx, graph);
 
         setIsLoading(false);
         console.log("Temperatures: ", data);
