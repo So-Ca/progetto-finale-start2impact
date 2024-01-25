@@ -145,7 +145,7 @@ function Temperature() {
     if(isMounted){
       getTemperature();
     }
-  }, [isMounted, chartInstance]);
+  }, [isMounted]);
 
   return (
     <div className={style["page"]}>

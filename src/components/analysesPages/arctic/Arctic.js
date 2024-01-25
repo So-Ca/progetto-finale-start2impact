@@ -134,7 +134,7 @@ function Arctic() {
     if(isMounted){
       getArctic();
     }
-  }, [isMounted, chartInstance]);
+  }, [isMounted]);
 
   return (
     <div className={style["page"]}>

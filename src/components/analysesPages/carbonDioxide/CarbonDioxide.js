@@ -134,7 +134,7 @@ function CarbonDioxide() {
     if(isMounted){
       getCO2();
     }
-  }, [isMounted, chartInstance]);
+  }, [isMounted]);
 
   return (
     <div className={style["page"]}>

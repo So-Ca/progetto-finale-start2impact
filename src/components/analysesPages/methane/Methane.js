@@ -133,7 +133,7 @@ function Methane() {
     if(isMounted){
       getCH4();
     }
-  }, [isMounted, chartInstance]);
+  }, [isMounted]);
 
   return (
     <div className={style["page"]}>
