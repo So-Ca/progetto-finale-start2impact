@@ -8,11 +8,7 @@
     This application is used to learn various data about global warming.
   </p>
 
-![header](https://github.com/So-Ca/progetto-react/assets/121359947/a3cef5d0-70ce-49cd-a608-4d6aa7580f78)
-![section](https://github.com/So-Ca/progetto-react/assets/121359947/8afa67de-cee0-4001-b5bb-5fe5e071515b)
-![footer](https://github.com/So-Ca/progetto-react/assets/121359947/f372ef74-a0f2-4e95-92d7-7562c6aa613e)
-![head-details](https://github.com/So-Ca/progetto-react/assets/121359947/e16bf687-79de-4ac3-ab60-655c8847fcc1)
-![sec-details](https://github.com/So-Ca/progetto-react/assets/121359947/fe8d9a47-3345-4320-8c57-225f479e0734)
+
 
 
   <h3>table of contents</h3>
@@ -56,10 +52,6 @@
   <h3>Responsive</h3>
 
   <p>Completely responsive site and it can be used in several device.</p>
-
-![responsive-min](https://github.com/So-Ca/progetto-react/assets/121359947/10109259-794d-4008-bb05-9ae2826ef94d)
-![responsive-mid](https://github.com/So-Ca/progetto-react/assets/121359947/6991009e-aaa1-4c50-9523-e4a9a565ff7a)
-
 
 
   <a name="contacts"></a>
