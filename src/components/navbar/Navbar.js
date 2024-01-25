@@ -42,7 +42,7 @@ function Navbar() {
             {isCurrentPage("/") ? (
               <li><img className={style["icon"]} src={home} style={{boxShadow: "none"}} alt="home"/></li>
             ) : (
-              <li><Link to="/"><img className={style["icon"]} src={home}/ alt="home"></Link></li>
+              <li><Link to="/"><img className={style["icon"]} src={home} alt="home"/></Link></li>
             )}
             {isCurrentPage("/temperature") ? (
               <li><img className={style["icon"]} src={temp} style={{boxShadow: "none"}} alt="temperature"/></li>
