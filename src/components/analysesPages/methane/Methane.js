@@ -11,7 +11,6 @@ function Methane() {
   const [isLoading, setIsLoading] = useState(false);
   const [isMounted, setIsMounted] = useState(true);
   const [error, setError] = useState(null);
-  const [chartInstance, setChartInstance] = useState(null);
   const chartRef = useRef(null);
 
   useEffect( () => {
@@ -24,9 +23,6 @@ function Methane() {
     async function getCH4(){
       try{
         setIsLoading(true);
-        if(chartInstance){
-          chartInstance.destroy();
-        }
   
         const response = await axios.get("https://global-warming.org/api/methane-api");
         const data = await response.data.methane;
@@ -119,7 +115,6 @@ function Methane() {
         const ctx = chartRef.current.getContext("2d");
         const newChartInstance = new Chart(ctx, graph);
   
-        setChartInstance(newChartInstance);
         setIsLoading(false);
         console.log("CH4: ", data);
   

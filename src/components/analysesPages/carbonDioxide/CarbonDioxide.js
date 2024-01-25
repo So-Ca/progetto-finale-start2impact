@@ -11,7 +11,6 @@ function CarbonDioxide() {
   const [isLoading, setIsLoading] = useState(false);
   const [isMounted, setIsMounted] = useState(true);
   const [error, setError] = useState(null);
-  const [chartInstance, setChartInstance] = useState(null);
   const chartRef = useRef(null);
 
   useEffect( () => {
@@ -24,9 +23,6 @@ function CarbonDioxide() {
     async function getCO2(){
       try{
         setIsLoading(true);
-        if(chartInstance){
-          chartInstance.destroy();
-        }
   
         const response = await axios.get("https://global-warming.org/api/co2-api");
         const data = await response.data.co2;
@@ -120,7 +116,6 @@ function CarbonDioxide() {
         const ctx = chartRef.current.getContext("2d");
         const newChartInstance = new Chart(ctx, graph);
   
-        setChartInstance(newChartInstance);
         setIsLoading(false);
         console.log("CO2: ", data);
   

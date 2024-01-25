@@ -11,7 +11,6 @@ function Temperature() {
   const [isLoading, setIsLoading] = useState(false);
   const [isMounted, setIsMounted] = useState(true);
   const [error, setError] = useState(null);
-  const [chartInstance, setChartInstance] = useState(null);
   const chartRef = useRef(null);
 
   useEffect( () => {
@@ -24,16 +23,13 @@ function Temperature() {
     async function getTemperature(){
       try{
         setIsLoading(true);
-        if(chartInstance){
-          chartInstance.destroy();
-        }
-  
+
         const response = await axios.get("https://global-warming.org/api/temperature-api");
         const data = await response.data.result;
         const time = data.map( item => item.time);
         const station = data.map( item => parseFloat(item.station));
         const land = data.map( item => parseFloat(item.land));
-  
+
         // specifiche del grafico
         const graph = {
           type: "bar",
@@ -84,7 +80,7 @@ function Temperature() {
                 },
                 grid: {
                   color: "#000000"
-                } 
+                }
                 },
               y: {
                 type: "linear",
@@ -113,7 +109,7 @@ function Temperature() {
             },
             plugins: {
               legend: {
-                display: true, 
+                display: true,
                 position: "top",
                 labels: {
                   color: "#ffffff",
@@ -130,11 +126,10 @@ function Temperature() {
         console.log("Anomalie lands: ", land);
         const ctx = chartRef.current.getContext("2d");
         const newChartInstance = new Chart(ctx, graph);
-  
-        setChartInstance(newChartInstance);
+
         setIsLoading(false);
         console.log("Temperatures: ", data);
-  
+
       } catch(error){
         console.log("Ops, there has been an error: ", error);
         setIsLoading(false);

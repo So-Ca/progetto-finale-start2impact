@@ -11,7 +11,6 @@ function NitrogenDioxide() {
   const [isLoading, setIsLoading] = useState(false);
   const [isMounted, setIsMounted] = useState(true);
   const [error, setError] = useState(null);
-  const [chartInstance, setChartInstance] = useState(null);
   const chartRef = useRef(null);
 
   useEffect( () => {
@@ -23,9 +22,6 @@ function NitrogenDioxide() {
     async function getNO2(){
       try{
         setIsLoading(true);
-        if(chartInstance){
-          chartInstance.destroy();
-        }
   
         const response = await axios.get("https://global-warming.org/api/nitrous-oxide-api");
         const data = await response.data.nitrous;
@@ -119,7 +115,6 @@ function NitrogenDioxide() {
         const ctx = chartRef.current.getContext("2d");
         const newChartInstance = new Chart(ctx, graph);
   
-        setChartInstance(newChartInstance);
         setIsLoading(false);
         console.log("NO2: ", data);
   
